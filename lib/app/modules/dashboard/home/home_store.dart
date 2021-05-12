@@ -1,10 +1,11 @@
-import 'package:flutter_triple/flutter_triple.dart';
-import 'package:gameshop/shared/models/product_model.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-class DashboardStore extends StreamStore<Exception, List<Product>> {
-  DashboardStore() : super([]);
+import 'package:flutter/services.dart';
+import 'package:flutter_triple/flutter_triple.dart';
+import 'package:gameshop/shared/models/product_model.dart';
+
+class HomeStore extends StreamStore<Exception, List<Product>> {
+  HomeStore() : super([]);
 
   Future<List<Product>> selectAll() async {
     setLoading(true);

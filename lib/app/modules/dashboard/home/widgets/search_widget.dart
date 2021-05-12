@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class SearchWidget extends StatelessWidget {
   final String title;
   final Size size;
+
   const SearchWidget(
       {Key? key, this.title = "AppBarWidget", required this.size})
       : super(key: key);

@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gameshop/gameshop/screens/home/home_screen.dart';
 
-import 'app/app_module.dart';
-import 'app/app_widget.dart';
+//void main() => runApp(ModularApp(module: AppModule(), child: AppWidget()));
 
-void main() => runApp(ModularApp(module: AppModule(), child: AppWidget()));
+void main() => runApp(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Game Shop',
+        theme: ThemeData(
+          primaryColor: Colors.indigo[800],
+          accentColor: Colors.blueGrey[800],
+        ),
+        home: HomeScreen(),
+      ),
+    );
