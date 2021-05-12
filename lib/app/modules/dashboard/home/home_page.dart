@@ -4,7 +4,7 @@ import 'package:gameshop/app/modules/dashboard/basket/basket_store.dart';
 import 'package:gameshop/app/modules/dashboard/home/home_store.dart';
 import 'package:gameshop/app/modules/dashboard/home/widgets/product_list_widget.dart';
 import 'package:gameshop/app/modules/dashboard/home/widgets/search_widget.dart';
-import 'package:gameshop/shared/models/product_model.dart';
+import 'package:gameshop/gameshop/models/product_model.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

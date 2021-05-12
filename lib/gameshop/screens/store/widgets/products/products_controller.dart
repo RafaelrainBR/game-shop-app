@@ -1,21 +1,25 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_triple/flutter_triple.dart';
 import 'package:gameshop/gameshop/models/product_model.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 
-class HomeStore extends StreamStore<Exception, List<Product>> {
-  HomeStore() : super([]);
+class ProductsController {
+  final state = <Product>[].asRx();
 
-  Future<List<Product>> selectAll() async {
-    setLoading(true);
+  ProductsController() {
+    update();
+  }
+
+  Future<void> update() async {
     final bundle = await rootBundle.loadString('assets/products.json');
     List<dynamic> data = json.decode(bundle);
 
     final result = data.map((json) => Product.fromJson(json)).toList();
-    update(result);
+    state.addAll(result);
+  }
 
-    setLoading(false);
-    return result;
+  void dispose() {
+    state.dispose();
   }
 }

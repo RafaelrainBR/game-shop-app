@@ -1,4 +1,4 @@
-import 'package:gameshop/shared/models/product_model.dart';
+import 'package:gameshop/gameshop/models/product_model.dart';
 
 class Basket {
   Map<Product, int> products = {};

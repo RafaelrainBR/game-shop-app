@@ -1,5 +1,5 @@
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:gameshop/shared/models/product_model.dart';
+import 'package:gameshop/gameshop/models/product_model.dart';
 
 import 'obj/basket_object.dart';
 

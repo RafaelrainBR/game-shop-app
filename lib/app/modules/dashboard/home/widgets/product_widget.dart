@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gameshop/app/modules/dashboard/basket/basket_store.dart';
-import 'package:gameshop/shared/models/product_model.dart';
+import 'package:gameshop/gameshop/models/product_model.dart';
 
 class ProductWidget extends StatelessWidget {
   ProductWidget(

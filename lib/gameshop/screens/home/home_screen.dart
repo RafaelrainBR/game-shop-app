@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gameshop/gameshop/screens/home/widgets/home_appbar_widget.dart';
+import 'package:gameshop/gameshop/screens/store/store_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  final pages = [];
+  final pages = [
+    StoreScreen(),
+  ];
 
   HomeScreen({Key? key}) : super(key: key);
 
@@ -16,22 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    appBar.onChange = _updateBody;
+    appBar.onChange = () => setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: Text("oi"), //widget.pages[appBar.index],
+      body: widget.pages[appBar.index],
       bottomNavigationBar: appBar,
     );
-  }
-
-  void _updateBody(int index) {
-    setState(() {
-      appBar.index = index;
-    });
   }
 
   AppBar _buildAppBar(context) {
