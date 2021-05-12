@@ -24,7 +24,7 @@ class StoreProductWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _buildProductImage(context),
-            _buildProductInfo(context),
+            _buildProductInfo(context, primaryColor),
           ],
         ),
       ),
@@ -52,7 +52,7 @@ class StoreProductWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildProductInfo(context) {
+  Widget _buildProductInfo(context, color) {
     final padding = const EdgeInsets.all(8);
     return Padding(
       padding: padding,
@@ -66,6 +66,7 @@ class StoreProductWidget extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
+          // TODO: Adicionar avaliação em estrelinhas.
           Padding(
               padding: padding,
               child: Row(

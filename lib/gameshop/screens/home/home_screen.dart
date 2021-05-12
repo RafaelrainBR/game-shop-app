@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gameshop/gameshop/screens/basket/basket_screen.dart';
 import 'package:gameshop/gameshop/screens/home/widgets/home_appbar_widget.dart';
 import 'package:gameshop/gameshop/screens/store/store_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final pages = [
     StoreScreen(),
+    BasketScreen(),
   ];
 
   HomeScreen({Key? key}) : super(key: key);

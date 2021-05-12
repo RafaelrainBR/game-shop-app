@@ -9,8 +9,8 @@ void main() {
   });
 
   test('increment count', () async {
-    expect(store.state, equals(0));
-    store.update(store.state + 1);
-    expect(store.state, equals(1));
+    expect(store._state, equals(0));
+    store.update(store._state + 1);
+    expect(store._state, equals(1));
   });
 }

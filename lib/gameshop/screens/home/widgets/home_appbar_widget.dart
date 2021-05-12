@@ -17,10 +17,10 @@ class _HomeAppBarState extends State<HomeAppBar> {
       backgroundColor: Theme.of(context).primaryColor,
       selectedItemColor: Colors.white,
       currentIndex: widget.index,
-      onTap: (i) {
+      onTap: (i) => setState(() {
         widget.index = i;
         widget.onChange();
-      },
+      }),
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home_sharp),

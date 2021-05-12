@@ -35,6 +35,7 @@ class _StoreScreenState extends State<StoreScreen> {
             scrollController: scrollController,
             productsController: productsController,
             searchController: searchController,
+            orderController: orderController,
           ),
           _spacer(),
         ],

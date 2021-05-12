@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gameshop/gameshop/screens/store/widgets/products/product_widget.dart';
+import 'package:gameshop/gameshop/models/product_model.dart';
+import 'package:gameshop/gameshop/screens/basket/basket_screen.dart';
+import 'package:gameshop/gameshop/screens/basket/widgets/basket_products/basket_products_controller.dart';
+import 'package:gameshop/gameshop/screens/store/widgets/order/order_controller.dart';
+import 'package:gameshop/gameshop/screens/store/widgets/products/child/product_widget.dart';
 import 'package:gameshop/gameshop/screens/store/widgets/products/products_controller.dart';
 import 'package:gameshop/gameshop/screens/store/widgets/search/search_controller.dart';
 import 'package:rx_notifier/rx_notifier.dart';
@@ -8,20 +12,25 @@ class ProductListWidget extends StatelessWidget {
   final ScrollController scrollController;
   final ProductsController productsController;
   final SearchController searchController;
+  final OrderController orderController;
+  final BasketProductsController basketProductsController =
+      BasketScreen.basketProductsController;
 
-  const ProductListWidget(
+  ProductListWidget(
       {Key? key,
       required this.productsController,
       required this.scrollController,
-      required this.searchController})
+      required this.searchController,
+      required this.orderController})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RxBuilder(
       builder: (context) {
-        final list = productsController.state;
-        final filtered = searchController.filter(list);
+        List<Product> list = List.from(productsController.state);
+        list = orderController.sort(list);
+        list = searchController.filter(list);
 
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -31,13 +40,13 @@ class ProductListWidget extends StatelessWidget {
           ),
           controller: scrollController,
           shrinkWrap: true,
-          itemCount: filtered.length,
+          itemCount: list.length,
           itemBuilder: (ctx, i) {
-            final product = filtered[i];
+            final product = list[i];
             return StoreProductWidget(
               product: product,
               onBuyButtonPress: () {
-                // TODO: Send product to BasketController
+                basketProductsController.addProduct(product);
               },
             );
           },

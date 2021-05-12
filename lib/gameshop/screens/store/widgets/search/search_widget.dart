@@ -21,7 +21,7 @@ class _StoreSearchWidgetState extends State<StoreSearchWidget> {
 
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.only(bottom: 56),
+      padding: EdgeInsets.only(bottom: 36),
       height: size.height * 0.2,
       decoration: _buildBoxDecoration(primaryColor),
       child: Padding(
