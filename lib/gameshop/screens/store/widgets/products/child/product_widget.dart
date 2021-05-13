@@ -79,14 +79,16 @@ class StoreProductWidget extends StatelessWidget {
                         .headline6!
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
-                  ElevatedButton(
-                    onPressed: onBuyButtonPress,
-                    child: Text(
-                      "Comprar",
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle2!
-                          .copyWith(fontWeight: FontWeight.bold),
+                  Flexible(
+                    child: ElevatedButton(
+                      onPressed: onBuyButtonPress,
+                      child: Text(
+                        "Comprar",
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle2!
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ],

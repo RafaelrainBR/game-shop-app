@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gameshop/gameshop/screens/basket/widgets/basket_products/basket_products_controller.dart';
 import 'package:gameshop/gameshop/screens/basket/widgets/basket_products/basket_products_widget.dart';
 import 'package:gameshop/gameshop/screens/basket/widgets/shipping/shipping_widget.dart';
+import 'package:gameshop/gameshop/screens/basket/widgets/title/basket_title_widget.dart';
 
 class BasketScreen extends StatefulWidget {
   static final basketProductsController = BasketProductsController();
@@ -20,8 +21,8 @@ class _BasketScreenState extends State<BasketScreen> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         _spacer(),
-        //BasketTitleWidget(),
-        //_spacer(10),
+        BasketTitleWidget(),
+        _spacer(10),
         BasketProductListWidget(
           controller: BasketScreen.basketProductsController,
         ),
