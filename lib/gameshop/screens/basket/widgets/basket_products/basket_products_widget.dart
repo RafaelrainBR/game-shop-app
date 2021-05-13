@@ -4,11 +4,9 @@ import 'package:gameshop/gameshop/screens/basket/widgets/basket_products/child/b
 import 'package:rx_notifier/rx_notifier.dart';
 
 class BasketProductListWidget extends StatelessWidget {
-  final ScrollController scrollController;
   final BasketProductsController controller;
 
-  const BasketProductListWidget(
-      {Key? key, required this.controller, required this.scrollController})
+  const BasketProductListWidget({Key? key, required this.controller})
       : super(key: key);
 
   @override
@@ -26,6 +24,21 @@ class BasketProductListWidget extends StatelessWidget {
             child: RxBuilder(
               builder: (ctx) {
                 final entries = controller.basketProducts.toList();
+                if (entries.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.error, size: 48),
+                        Text(
+                          "Parece que seu carrinho está vazio.",
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headline4!,
+                        ),
+                      ],
+                    ),
+                  );
+                }
 
                 return ListView.builder(
                   //controller: scrollController,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gameshop/gameshop/screens/basket/widgets/basket_products/basket_products_controller.dart';
 import 'package:gameshop/gameshop/screens/basket/widgets/basket_products/basket_products_widget.dart';
+import 'package:gameshop/gameshop/screens/basket/widgets/shipping/shipping_widget.dart';
 
 class BasketScreen extends StatefulWidget {
   static final basketProductsController = BasketProductsController();
@@ -12,24 +13,22 @@ class BasketScreen extends StatefulWidget {
 }
 
 class _BasketScreenState extends State<BasketScreen> {
-  final scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      controller: scrollController,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          _spacer(),
-          //BasketTitleWidget(),
-          //_spacer(10),
-          BasketProductListWidget(
-            controller: BasketScreen.basketProductsController,
-            scrollController: scrollController,
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        _spacer(),
+        //BasketTitleWidget(),
+        //_spacer(10),
+        BasketProductListWidget(
+          controller: BasketScreen.basketProductsController,
+        ),
+        Spacer(),
+        ShippingWidget(
+            basketProductsController: BasketScreen.basketProductsController),
+      ],
     );
   }
 
