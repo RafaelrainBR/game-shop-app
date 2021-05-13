@@ -53,7 +53,7 @@ class StoreProductWidget extends StatelessWidget {
   }
 
   Widget _buildProductInfo(context, color) {
-    final padding = const EdgeInsets.all(8);
+    final padding = const EdgeInsets.all(6);
     return Padding(
       padding: padding,
       child: Column(
@@ -68,33 +68,32 @@ class StoreProductWidget extends StatelessWidget {
           ),
           // TODO: Adicionar avaliação em estrelinhas.
           Padding(
-              padding: padding,
-              child: Flexible(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        "R\$${product.price}",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: onBuyButtonPress,
-                      child: Text(
-                        "Comprar",
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle2!
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
+            padding: padding,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Expanded(
+                  child: Text(
+                    "R\$${product.price}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1!
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
                 ),
-              )),
+                ElevatedButton(
+                  onPressed: onBuyButtonPress,
+                  child: Text(
+                    "Comprar",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2!
+                        .copyWith(fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
