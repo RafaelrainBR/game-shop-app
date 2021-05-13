@@ -69,18 +69,20 @@ class StoreProductWidget extends StatelessWidget {
           // TODO: Adicionar avaliação em estrelinhas.
           Padding(
               padding: padding,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    "R\$${product.price}",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6!
-                        .copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  Flexible(
-                    child: ElevatedButton(
+              child: Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "R\$${product.price}",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    ElevatedButton(
                       onPressed: onBuyButtonPress,
                       child: Text(
                         "Comprar",
@@ -90,8 +92,8 @@ class StoreProductWidget extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )),
         ],
       ),
