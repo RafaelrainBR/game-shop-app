@@ -95,6 +95,4 @@ class StoreProductWidget extends StatelessWidget {
       ),
     );
   }
-
-  Widget generateStars(Product product) {}
 }
